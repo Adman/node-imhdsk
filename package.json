@@ -1,0 +1,30 @@
+{
+  "name": "node-imhdsk",
+  "version": "0.0.1",
+  "description": "An unofficial API for grabbing data from imhd.sk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adman/node-imhdsk.git"
+  },
+  "keywords": [
+    "travel",
+    "transportation",
+    "public",
+    "city",
+    "transport"
+  ],
+  "author": "Adrian Matejov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Adman/node-imhdsk/issues"
+  },
+  "homepage": "https://github.com/Adman/node-imhdsk#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "request": "^2.88.0"
+  }
+}
