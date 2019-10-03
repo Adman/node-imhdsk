@@ -1,5 +1,7 @@
 # node-imhdsk
 
+[![npm version](https://badge.fury.io/js/node-imhdsk.svg)](https://badge.fury.io/js/node-imhdsk)
+
 This is a nodejs port of [python-imhdsk-api](https://github.com/mrshu/python-imhdsk-api)
 
 ## Installation
