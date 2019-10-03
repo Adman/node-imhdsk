@@ -8,6 +8,8 @@ This is a nodejs port of [python-imhdsk-api](https://github.com/mrshu/python-imh
 
 ## Usage
 
+### Search for a route from point A to point B
+
 ```javascript
 const imhdsk = require('node-imhdsk');
 var options = {'from': 'mlyny',
@@ -19,7 +21,7 @@ imhdsk.get_routes(options).then(function(res) {
 });
 ```
 
-### Available options
+#### Available options
 
 | parameter | type    | description                                             |
 | --------- | ------- | ------------------------------------------------------- |
@@ -29,5 +31,16 @@ imhdsk.get_routes(options).then(function(res) {
 | `time`    | string  | Departure time. Defaults to current time.               |
 | `date`    | string  | Departure date. Defaults to current date.               |
 
+### Get real-time information from particular stop
+
+The function `get_livetable` takes the stop ID as a parameter. These IDs can
+be found at [imhd.sk](https://imhd.sk).
+
+```javascript
+const imhdsk = require('node-imhdsk');
+imhdsk.get_livetable(93).then(function(res) {
+    console.log(res);
+});
+```
 
 *Beware that by using this you might be violating imhd.sk ToS*
