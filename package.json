@@ -1,6 +1,6 @@
 {
   "name": "node-imhdsk",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An unofficial API for grabbing data from imhd.sk",
   "main": "index.js",
   "scripts": {
