@@ -214,6 +214,8 @@ exports.get_livetable = function(stop_id) {
                             lines: []
                         };
 
+                        var current_time = new Date(t.timestamp);
+
                         t.tab.forEach(function(line) {
                             var delay = 0;
                             if ('casDelta' in line)
@@ -227,12 +229,21 @@ exports.get_livetable = function(stop_id) {
                                     last_stop_name = mapping[last_stop_id];
                             }
 
+                            var line_time = new Date(line.cas);
+                            var leaving_in = (line_time.getTime() -
+                                              current_time.getTime()) / 1000;
+
+                            if (leaving_in < 0)
+                                leaving_in = 0;
+
                             out[key].lines.push({
                                 line: line.linka,
                                 vehicle: line.issi,
                                 destination_id: line.cielZastavka,
                                 destination_name: mapping[line.cielZastavka],
                                 time: line.cas,
+                                leaving_in_secs: leaving_in,
+                                delay: delay,
                                 type: line.typ,
                                 last_stop_id: last_stop_id,
                                 last_stop_name: last_stop_name
