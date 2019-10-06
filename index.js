@@ -177,6 +177,9 @@ exports.get_livetable = function(stop_id) {
                 var tabs = JSON.parse(body3.replace(/^.*tabs\",/, '')
                                            .replace(/\]$/, ''));
 
+                if ('message' in tabs && tabs.message == 'Session ID unknown')
+                    return reject('Failed to fetch data, unknown sid');
+
                 var ids = [];
                 Object.keys(tabs).forEach(function(key) {
                     var table_id = tabs[key].zastavka;
