@@ -147,9 +147,9 @@ exports.get_livetable = function(stop_id) {
     }
 
     var req_mapping = {
-        url: 'https://imhd.sk/ba/api/sk/cp',
+        url: 'https://imhd.sk/ba/api/cepo',
         qs: {
-            'op': 'gsn',
+            'op': 'GetStopName',
             'id': ''
         },
         headers: {
@@ -202,7 +202,7 @@ exports.get_livetable = function(stop_id) {
 
                 /* Get names of destinations */
                 request.get(req_mapping, function(e, r, b) {
-                    var mapping = JSON.parse(b).sn;
+                    var mapping = JSON.parse(b).stops;
 
                     var out = {}
 
@@ -211,7 +211,7 @@ exports.get_livetable = function(stop_id) {
                         var t = tabs[key];
                         out[key] = {
                             stop_id: t.zastavka,
-                            stop_name: mapping[t.zastavka],
+                            stop_name: mapping[t.zastavka].name,
                             platform: t.nastupiste,
                             timestamp: t.timestamp,
                             lines: []
