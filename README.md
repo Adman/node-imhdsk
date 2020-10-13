@@ -36,7 +36,9 @@ imhdsk.get_routes(options).then(function(res) {
 ### Get real-time information from particular stop
 
 The function `get_livetable` takes the stop ID as a parameter. These IDs can
-be found at [imhd.sk](https://imhd.sk).
+be found at [imhd.sk](https://imhd.sk). Open the page with the stop information,
+then open the livetable in new window. The parameter `st` in the url should be
+the stop's ID.
 
 ```javascript
 const imhdsk = require('node-imhdsk');

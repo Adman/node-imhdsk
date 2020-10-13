@@ -242,12 +242,13 @@ exports.get_livetable = function(stop_id) {
                             out[key].lines.push({
                                 line: line.linka,
                                 vehicle: line.issi,
-                                destination_id: line.cielZastavka,
-                                destination_name: mapping[line.cielZastavka],
+                                destination_name: line.cielStr,
+                                destination_city: line.konecnaZobec,
+                                destination_name_city: line.konecnaZstr,
                                 time: line.cas,
                                 leaving_in_secs: leaving_in,
                                 delay: delay,
-                                type: line.typ,
+                                type: line.linka,
                                 last_stop_id: last_stop_id,
                                 last_stop_name: last_stop_name
                             });
